@@ -1,6 +1,6 @@
-## Kdv5eig
+# Kdv5eig
 
-# Eigenfunction continuation for KdV5
+## Eigenfunction continuation for KdV5
 
 This is a collection of AUTO and python scripts to run continuation code for double pulses of KdV5 together with eigenfunctions associated with interaction eigenvalues. Here are the steps we need to run.
 
@@ -28,8 +28,13 @@ Next, we run another python script to use the eigenfunction from right before th
 
 ```python appendeigAUTO.py -i1 auto_kdv_1 -l1 46 -i2 auto_kdv_bubble -l2 110 -o output_bubble.dat```
 
+We take this merged data and continue in dummy variable 6 to run 10 steps of Newton's method. We have to specify the length parameter *L* from Label 110 of ``b.auto_kdv_bubble`` as PAR(3) in ``c.auto_kdv.4``. Output is in ``auto_kdv_start2``.
 
+```@r auto_kdv 4```
 
+Now, we can continue in *L* in the negative direction to get the other side of the Krein bubble. *L* decreases initially, but we see another turning point as *L* starts to increase, and once again continuation has switched from the interaction eigenfunction to the "essential spectrum" eigenfunction.
+
+```@r auto_kdv 5 auto_kdv_start2```
 
 
 
