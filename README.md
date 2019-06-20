@@ -36,6 +36,20 @@ Now, we can continue in *L* in the negative direction to get the other side of t
 
 ```@r auto_kdv 5 auto_kdv_start2```
 
+Now that we have the outside of the Krein bubble, we will try to look inside the Krein bubble. We take the function from just inside the Krein bubble (Label 62 in ``b.auto_kdv_bubble``), and use the eigenfunction from just outside the bubble as a initial guess (Label 46 in ``b.auto_kdv_1``).
+
+```python appendeigAUTO.py -i1 auto_kdv_1 -l1 46 -i2 auto_kdv_bubble -l2 62 -o output_bubble.dat```
+
+Do Newton's method on this as before. Again, we have to specify the value of *L* as PAR(3) in ``c.auto_kdv.6``.
+
+```@r auto_kdv 6```
+
+Newton's method no longer can converge here (which should be inside the Krein bubble), so something is going on.
+
+
+
+
+
 
 
 
