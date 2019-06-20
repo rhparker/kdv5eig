@@ -16,7 +16,7 @@ Run AUTO using data from ``output.dat`` from python script. Again, continue in d
 
 ```@r auto_kdv 1```
 
-We can now do parameter continuation in the length parameter *L*, which is the whole point of all of this. We start at Label 10 from the previous step. All bifurcation detection is turned off for now. At Label 46 (*L* = 2.91624E+02) there is a turning point and *L* starts to decrease. Looking at a plot of the imaginary part of the eigenvalue vs. *L*, what happens here is that the Krein collision has occurred, and the continuation has switched from the interaction eigenfunction to the "essential spectrum" eigenfunction. Data is saved to ``b.auto_kdv_1``, etc.
+We can now do parameter continuation in the length parameter *L*, which is the whole point of all of this. We start at Label 10 from the previous step. All bifurcation detection is turned off for now. At Label 46 (*L* = 2.91624E+02) there is a turning point and *L* starts to decrease. Looking at a plot of the imaginary part of the eigenvalue vs. *L*, what happens here is that the Krein collision has occurred, and the continuation has switched from the interaction eigenfunction to the "essential spectrum" eigenfunction. Data is saved to ``b.auto_kdv_1``, etc. Since we are not detecting bifurcations, we save every 20 steps, which may be excessive but at least gets us near the beginning of the Krein bubble.
 
 ```@r auto_kdv 2 auto_kdv_start```
 
