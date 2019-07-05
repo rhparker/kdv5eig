@@ -1,3 +1,5 @@
+# append eigenfunction data from Matlab
+
 import sys
 sys.path.insert(0, '../python')
 from bifDiag import bifDiag

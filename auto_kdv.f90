@@ -18,6 +18,7 @@ subroutine func(ndim,u,icp,par,ijac,f,dfdu,dfdp)
 	double precision v1,v2,v3,v4,v5
 	double precision w1,w2,w3,w4,w5
 	double precision alpha, beta
+	double precision r
 	integer j
   
 	c = par(1)
@@ -25,6 +26,7 @@ subroutine func(ndim,u,icp,par,ijac,f,dfdu,dfdp)
 	L = par(3)
 	alpha = par(4)
 	beta = par(5)
+	r = par(7)
 
 	q1 = u(1)
 	q2 = u(2)
@@ -56,12 +58,12 @@ subroutine func(ndim,u,icp,par,ijac,f,dfdu,dfdp)
 	 	f(6) = v3
 	 	f(7) = v4
 	 	f(8) = v5
-	 	f(9) = v4 - c*v2 + 2*q1*v2 + 2*q2*v1 + alpha*v1 - beta*w1;
+	 	f(9) = v4 - c*v2 + 2*q1*v2 + 2*q2*v1 + alpha*v1 - beta*w1 + r*w2;
 	 	f(10) = w2
 	 	f(11) = w3
 	 	f(12) = w4
 	 	f(13) = w5
- 		f(14) = w4 - c*w2 + 2*q1*w2 + 2*q2*w1 + beta*v1 + alpha*w1;
+ 		f(14) = w4 - c*w2 + 2*q1*w2 + 2*q2*w1 + beta*v1 + alpha*w1 - r*v2;
 	 end if
 
 	do j=1,ndim
@@ -86,6 +88,7 @@ subroutine stpnt(ndim,u,par,t)
 	par(4)  = 0;			! real part eigenvalue		
 	par(5)  = 0.2168;		! imag part eigenvalue
 	par(6)  = 1;			! dummy parameter
+	par(7)  = 0;			! bubble-breaking parameter
  
 end subroutine stpnt
 
